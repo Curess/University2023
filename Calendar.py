@@ -1,6 +1,12 @@
-# Import date class from datetime module
-from datetime import date
+from flask import Flask
+from datetime import datetime
 
-# Returns the current local date
-today = date.today()
-print("Today date is: ", today)
+app = Flask(__name__)
+
+@app.route('/')
+def display_date():
+    current_date = datetime.now().strftime('%Y-%m-%d')
+    return f'Today\'s date is: {current_date}'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80)
