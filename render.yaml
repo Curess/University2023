@@ -1,0 +1,6 @@
+services:
+- type: web
+  name: date-app
+  env: python
+  build:
+    cmd: pip install -r requirements.txt && python app.py
